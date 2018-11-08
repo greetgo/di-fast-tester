@@ -15,13 +15,9 @@ public class CreateClassesLauncher {
 
     String destPackage = "kz.greetgo.di_fast.generated";
 
-    JavaFilePrinter p = new JavaFilePrinter();
-    p.packageName = destPackage;
-    p.classHeader = "public class Hello";
-    p.className = "Hello";
-
-    p.beforeHeader.add("@" + p.i(Component.class));
-
-    p.printToSrc(destDir);
+    BeanClass beanClass=new BeanClass();
+    beanClass.name = "HelloWorld";
+    beanClass.packageName = destPackage;
+    beanClass.printTo(destDir);
   }
 }
