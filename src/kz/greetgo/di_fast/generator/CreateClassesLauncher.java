@@ -1,5 +1,7 @@
 package kz.greetgo.di_fast.generator;
 
+import org.springframework.stereotype.Component;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -10,7 +12,6 @@ public class CreateClassesLauncher {
 
   private void exec() {
     Path destDir = Paths.get("src");
-    System.out.println("here = " + destDir.toFile().getAbsoluteFile().toPath().normalize().toFile());
 
     String destPackage = "kz.greetgo.di_fast.generated";
 
@@ -18,6 +19,8 @@ public class CreateClassesLauncher {
     p.packageName = destPackage;
     p.classHeader = "public class Hello";
     p.className = "Hello";
+
+    p.beforeHeader.add("@" + p.i(Component.class));
 
     p.printToSrc(destDir);
   }

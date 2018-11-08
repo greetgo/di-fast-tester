@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -15,6 +17,8 @@ public class JavaFilePrinter {
   public String packageName;
   public String classHeader;
   public String className;
+
+  public final List<String> beforeHeader = new ArrayList<>();
 
   private final StringBuilder content = new StringBuilder();
 
@@ -50,6 +54,10 @@ public class JavaFilePrinter {
     return fullName.substring(index + 1);
   }
 
+  public String i(Class<?> aClass) {
+    return i(aClass.getName());
+  }
+
   public String i(String fullName) {
     if (fullName == null) {
       throw new IllegalArgumentException("fullName == null");
@@ -83,6 +91,10 @@ public class JavaFilePrinter {
     result.append(imports.values().stream().sorted().map(fn -> "import " + fn + ";").collect(Collectors.joining("\n")));
 
     result.append("\n\n");
+
+    for (String line : beforeHeader) {
+      result.append(line).append("\n");
+    }
 
     result.append(classHeader).append(" {\n");
 
