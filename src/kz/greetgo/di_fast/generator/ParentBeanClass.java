@@ -8,6 +8,10 @@ public abstract class ParentBeanClass {
   public String name;
   public String packageName;
 
+  public String fullName() {
+    return packageName + "." + name;
+  }
+
   public void printTo(Path destSrc) {
     JavaFilePrinter p = new JavaFilePrinter();
     p.packageName = packageName;

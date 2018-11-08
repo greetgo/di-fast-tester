@@ -46,15 +46,19 @@ public class CreateClassesLauncher {
 
     shuffle(refs);
 
+    for (int ref : refs) {
+      System.out.println("ref = " + ref);
+    }
+
     for (int i = 0; i < refs.length - 1; i++) {
-      classes[i].nextOnLine1 = classes[i + 1];
+      classes[refs[i]].nextOnLine1 = classes[refs[i + 1]];
     }
 
     MainBeanClass mainBeanClass = new MainBeanClass();
     mainBeanClass.name = "MainBean";
     mainBeanClass.packageName = destPackage;
 
-    mainBeanClass.startLine1 = classes[0];
+    mainBeanClass.startLine1 = classes[refs[0]];
 
     Arrays.stream(classes)
         .forEachOrdered(beanClass -> beanClass.printTo(destDir));
