@@ -1,17 +1,16 @@
 package kz.greetgo.di_fast.app;
 
-import kz.greetgo.di_fast.structure.BeanScanner;
-import kz.greetgo.di_fast.structure.MainBean;
+import kz.greetgo.di_fast.generated.MainBean;
 import kz.greetgo.di_fast.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ComponentScan;
 
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
-@Import(BeanScanner.class)
+@ComponentScan("kz.greetgo.di_fast.generated")
 public class DiFastApp {
   public static void main(String[] args) {
     System.out.println("Started main at " + Utils.nowStr());
@@ -23,7 +22,8 @@ public class DiFastApp {
 
   @PostConstruct
   public void init() {
-    System.out.println("Hello in post construct at " + Utils.nowStr());
-    mainBean.printHello();
+    System.out.println("Start passing " + Utils.nowStr());
+    mainBean.line1(true);
+    System.out.println("Finish passing " + Utils.nowStr());
   }
 }
