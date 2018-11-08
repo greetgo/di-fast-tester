@@ -13,15 +13,16 @@ public class CreateClassesLauncher {
 
     String destPackage = "kz.greetgo.di_fast.generated";
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 10_000; i++) {
       StringBuilder sb = new StringBuilder();
       sb.append(destPackage);
 
       {
+        final int factor = 7;
         int ii = i;
         while (ii != 0) {
-          sb.append(".p").append(ii % 3);
-          ii /= 3;
+          sb.append(".p").append(ii % factor);
+          ii /= factor;
         }
       }
 
