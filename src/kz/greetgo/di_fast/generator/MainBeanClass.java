@@ -1,11 +1,10 @@
 package kz.greetgo.di_fast.generator;
 
-public class BeanClass extends ParentBeanClass {
-
+public class MainBeanClass extends ParentBeanClass {
   @Override
   protected void printContent(JavaFilePrinter p) {
 
   }
 
-  public BeanClass nextOnLine1 = null;
+  public BeanClass startLine1;
 }

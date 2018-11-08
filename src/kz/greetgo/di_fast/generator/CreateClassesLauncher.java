@@ -2,6 +2,9 @@ package kz.greetgo.di_fast.generator;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+
+import static kz.greetgo.di_fast.util.Utils.shuffle;
 
 public class CreateClassesLauncher {
   public static void main(String[] args) {
@@ -13,14 +16,17 @@ public class CreateClassesLauncher {
 
     String destPackage = "kz.greetgo.di_fast.generated";
 
-    for (int i = 0; i < 10_000; i++) {
+    BeanClass classes[] = new BeanClass[10];
+
+    for (int i = 0; i < classes.length; i++) {
       StringBuilder sb = new StringBuilder();
       sb.append(destPackage);
+      sb.append(".wow");
 
       {
         final int factor = 7;
         int ii = i;
-        while (ii != 0) {
+        while (ii > 7) {
           sb.append(".p").append(ii % factor);
           ii /= factor;
         }
@@ -29,9 +35,30 @@ public class CreateClassesLauncher {
       BeanClass beanClass = new BeanClass();
       beanClass.name = "HelloWorld" + i;
       beanClass.packageName = sb.toString();
-      beanClass.printTo(destDir);
+
+      classes[i] = beanClass;
     }
 
+    int refs[] = new int[classes.length];
+    for (int i = 0; i < refs.length; i++) {
+      refs[i] = i;
+    }
 
+    shuffle(refs);
+
+    for (int i = 0; i < refs.length - 1; i++) {
+      classes[i].nextOnLine1 = classes[i + 1];
+    }
+
+    MainBeanClass mainBeanClass = new MainBeanClass();
+    mainBeanClass.name = "MainBean";
+    mainBeanClass.packageName = destPackage;
+
+    mainBeanClass.startLine1 = classes[0];
+
+    Arrays.stream(classes)
+        .forEachOrdered(beanClass -> beanClass.printTo(destDir));
+    mainBeanClass.printTo(destDir);
   }
+
 }
