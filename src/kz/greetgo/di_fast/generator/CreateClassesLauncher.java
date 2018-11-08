@@ -46,10 +46,6 @@ public class CreateClassesLauncher {
 
     shuffle(refs);
 
-    for (int ref : refs) {
-      System.out.println("ref = " + ref);
-    }
-
     for (int i = 0; i < refs.length - 1; i++) {
       classes[refs[i]].nextOnLine1 = classes[refs[i + 1]];
     }
