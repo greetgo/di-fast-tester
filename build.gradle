@@ -1,6 +1,22 @@
+buildscript {
+  ext {
+    springBootVersion = '2.1.0.RELEASE'
+  }
+  repositories {
+    mavenLocal()
+    if (System.getenv('GG_REPO')?.trim()) maven { url System.getenv('GG_REPO') }
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 version = '0.0.1'
 
@@ -12,6 +28,9 @@ repositories {
 
 dependencies {
   ext.testNgVersion = '6.14.3'
+
+  implementation('org.springframework.boot:spring-boot-starter')
+  testImplementation('org.springframework.boot:spring-boot-starter-test')
 
   testCompile "org.testng:testng:$testNgVersion"
   testCompile 'org.easytesting:fest-assert-core:2.0M10'
