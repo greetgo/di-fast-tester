@@ -1,7 +1,5 @@
 package kz.greetgo.di_fast.generator;
 
-import org.springframework.stereotype.Component;
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -15,9 +13,24 @@ public class CreateClassesLauncher {
 
     String destPackage = "kz.greetgo.di_fast.generated";
 
-    BeanClass beanClass=new BeanClass();
-    beanClass.name = "HelloWorld";
-    beanClass.packageName = destPackage;
-    beanClass.printTo(destDir);
+    for (int i = 0; i < 100; i++) {
+      StringBuilder sb = new StringBuilder();
+      sb.append(destPackage);
+
+      {
+        int ii = i;
+        while (ii != 0) {
+          sb.append(".p").append(ii % 3);
+          ii /= 3;
+        }
+      }
+
+      BeanClass beanClass = new BeanClass();
+      beanClass.name = "HelloWorld" + i;
+      beanClass.packageName = sb.toString();
+      beanClass.printTo(destDir);
+    }
+
+
   }
 }
