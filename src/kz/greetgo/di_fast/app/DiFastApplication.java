@@ -11,10 +11,10 @@ import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 @ComponentScan("kz.greetgo.di_fast.generated")
-public class DiFastApp {
+public class DiFastApplication {
   public static void main(String[] args) {
     System.out.println("Started main at " + Utils.nowStr());
-    SpringApplication.run(DiFastApp.class, args);
+    SpringApplication.run(DiFastApplication.class, args);
   }
 
   @Autowired

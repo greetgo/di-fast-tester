@@ -6,9 +6,12 @@ import java.util.Arrays;
 
 import static kz.greetgo.di_fast.util.Utils.shuffle;
 
-public class CreateClassesLauncher {
+public class GenerateClassesLauncher {
+
+  private static final int GENERATE_CLASS_COUNT = 300;
+
   public static void main(String[] args) {
-    new CreateClassesLauncher().exec();
+    new GenerateClassesLauncher().exec();
   }
 
   private void exec() {
@@ -16,7 +19,7 @@ public class CreateClassesLauncher {
 
     String destPackage = "kz.greetgo.di_fast.generated";
 
-    BeanClass classes[] = new BeanClass[1000];
+    BeanClass classes[] = new BeanClass[GENERATE_CLASS_COUNT];
 
     for (int i = 0; i < classes.length; i++) {
       StringBuilder sb = new StringBuilder();
