@@ -16,7 +16,7 @@ public class CreateClassesLauncher {
 
     String destPackage = "kz.greetgo.di_fast.generated";
 
-    BeanClass classes[] = new BeanClass[10];
+    BeanClass classes[] = new BeanClass[1000];
 
     for (int i = 0; i < classes.length; i++) {
       StringBuilder sb = new StringBuilder();
