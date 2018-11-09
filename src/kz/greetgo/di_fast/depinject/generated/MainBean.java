@@ -4,6 +4,5 @@ import kz.greetgo.depinject.core.Bean;
 
 @Bean
 public class MainBean {
-  public void line1(boolean printPath) {
-  }
+  public void line1(boolean printPath) {}
 }

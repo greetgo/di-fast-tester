@@ -74,3 +74,26 @@ jar {
     attributes 'Created-At': new Date().format("yyyy-MM-dd/HH:mm:ss")
   }
 }
+
+task runDepinjectApplication(type: JavaExec) {
+  group = "run"
+  main = "kz.greetgo.di_fast.depinject.app.DepinjectApplication"
+  classpath = sourceSets.main.runtimeClasspath
+}
+
+task runSpringApplication(type: JavaExec) {
+  group = "run"
+  main = "kz.greetgo.di_fast.spring.app.DiFastApplication"
+  classpath = sourceSets.main.runtimeClasspath
+}
+
+task runDepinjectClassesGenerator(type: JavaExec) {
+  group = "run"
+  main = "kz.greetgo.di_fast.depinject.generator.GenerateDepinjectClassesLauncher"
+  classpath = sourceSets.main.runtimeClasspath
+}
+task runSpringClassesGenerator(type: JavaExec) {
+  group = "run"
+  main = "kz.greetgo.di_fast.spring.generator.GenerateClassesLauncher"
+  classpath = sourceSets.main.runtimeClasspath
+}

@@ -20,7 +20,7 @@ public class DepinjectApplication {
 
     System.out.println("Created bean container at " + Utils.nowStr());
 
-    beanContainer.mainBean().line1(true);
+    beanContainer.mainBean().line1(false);
 
     System.out.println("Finished at " + Utils.nowStr());
   }
