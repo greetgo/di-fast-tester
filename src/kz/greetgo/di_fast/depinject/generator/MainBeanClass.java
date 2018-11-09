@@ -9,7 +9,7 @@ public class MainBeanClass extends ParentBeanClass {
 
     if (startLine1 != null) {
 
-      p.ofs(1).prn("private " + p.i(BeanGetter.class) + "<" + p.i(startLine1.fullName()) + "> startOnLine1;");
+      p.ofs(1).prn("public " + p.i(BeanGetter.class) + "<" + p.i(startLine1.fullName()) + "> startOnLine1;");
       p.ofs(1).prn();
 
       p.ofs(1).prn("public void line1(boolean printPath) {");
