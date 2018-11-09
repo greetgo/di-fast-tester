@@ -97,3 +97,11 @@ task runSpringClassesGenerator(type: JavaExec) {
   main = "kz.greetgo.di_fast.spring.generator.GenerateClassesLauncher"
   classpath = sourceSets.main.runtimeClasspath
 }
+
+compileJava {
+  options.fork = true
+  options.verbose = true
+  options.forkOptions.with {
+    memoryMaximumSize = "10g"
+  }
+}
