@@ -1,4 +1,4 @@
-package kz.greetgo.di_fast.spring.generator;
+package kz.greetgo.di_fast.depinject.generator;
 
 import kz.greetgo.di_fast.util.JavaFilePrinter;
 import org.springframework.beans.factory.annotation.Autowired;

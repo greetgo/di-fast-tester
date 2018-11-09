@@ -1,7 +1,7 @@
-package kz.greetgo.di_fast.spring.generator;
+package kz.greetgo.di_fast.depinject.generator;
 
+import kz.greetgo.depinject.core.Bean;
 import kz.greetgo.di_fast.util.JavaFilePrinter;
-import org.springframework.stereotype.Component;
 
 import java.nio.file.Path;
 
@@ -19,7 +19,7 @@ public abstract class ParentBeanClass {
     p.classHeader = "public class " + name;
     p.className = name;
 
-    p.beforeHeader.add("@" + p.i(Component.class));
+    p.beforeHeader.add("@" + p.i(Bean.class));
 
     printContent(p);
 
