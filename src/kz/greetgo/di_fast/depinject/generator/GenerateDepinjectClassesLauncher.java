@@ -59,8 +59,7 @@ public class GenerateDepinjectClassesLauncher {
 
     mainBeanClass.startLine1 = classes[refs[0]];
 
-    Arrays.stream(classes)
-        .forEachOrdered(beanClass -> beanClass.printTo(destDir));
+    Arrays.stream(classes).forEachOrdered(beanClass -> beanClass.printTo(destDir));
     mainBeanClass.printTo(destDir);
   }
 }
