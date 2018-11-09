@@ -1,7 +1,7 @@
 package kz.greetgo.di_fast.depinject.generator;
 
+import kz.greetgo.depinject.core.BeanGetter;
 import kz.greetgo.di_fast.util.JavaFilePrinter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class BeanClass extends ParentBeanClass {
 
@@ -9,8 +9,7 @@ public class BeanClass extends ParentBeanClass {
   protected void printContent(JavaFilePrinter p) {
 
     if (nextOnLine1 != null) {
-      p.ofs(1).prn("@" + p.i(Autowired.class));
-      p.ofs(1).prn("private " + p.i(nextOnLine1.fullName()) + " nextOnLine1;");
+      p.ofs(1).prn("public " + p.i(BeanGetter.class) + "<" + p.i(nextOnLine1.fullName()) + "> nextOnLine1;");
       p.ofs(1).prn();
     }
 
@@ -21,7 +20,7 @@ public class BeanClass extends ParentBeanClass {
     if (nextOnLine1 == null) {
       p.ofs(2).prn("System.out.println(\"LINE1 : Hello from \" + getClass().getSimpleName());");
     } else {
-      p.ofs(2).prn("nextOnLine1.line1(printPath);");
+      p.ofs(2).prn("nextOnLine1.get().line1(printPath);");
     }
 
     p.ofs(1).prn("}");

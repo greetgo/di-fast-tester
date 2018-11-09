@@ -1,8 +1,5 @@
 package kz.greetgo.di_fast.depinject.generator;
 
-import kz.greetgo.di_fast.spring.generator.BeanClass;
-import kz.greetgo.di_fast.spring.generator.MainBeanClass;
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -56,7 +53,7 @@ public class GenerateDepinjectClassesLauncher {
       classes[refs[i]].nextOnLine1 = classes[refs[i + 1]];
     }
 
-    kz.greetgo.di_fast.spring.generator.MainBeanClass mainBeanClass = new MainBeanClass();
+    MainBeanClass mainBeanClass = new MainBeanClass();
     mainBeanClass.name = "MainBean";
     mainBeanClass.packageName = destPackage;
 
