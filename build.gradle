@@ -28,9 +28,13 @@ repositories {
 
 dependencies {
   ext.testNgVersion = '6.14.3'
+  ext.depinjectVersion = '2.1.7'
 
   implementation('org.springframework.boot:spring-boot-starter')
   testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+  compile "kz.greetgo.depinject:greetgo.depinject:$depinjectVersion"
+  compile "kz.greetgo.depinject:greetgo.depinject.gen:$depinjectVersion"
 
   testCompile "org.testng:testng:$testNgVersion"
   testCompile 'org.easytesting:fest-assert-core:2.0M10'
