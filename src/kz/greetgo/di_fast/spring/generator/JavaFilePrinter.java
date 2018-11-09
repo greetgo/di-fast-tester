@@ -1,4 +1,4 @@
-package kz.greetgo.di_fast.generator;
+package kz.greetgo.di_fast.spring.generator;
 
 import java.io.File;
 import java.io.FileNotFoundException;

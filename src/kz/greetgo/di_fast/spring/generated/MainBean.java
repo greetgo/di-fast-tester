@@ -1,4 +1,4 @@
-package kz.greetgo.di_fast.generated;
+package kz.greetgo.di_fast.spring.generated;
 
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package kz.greetgo.di_fast.generator;
+package kz.greetgo.di_fast.spring.generator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

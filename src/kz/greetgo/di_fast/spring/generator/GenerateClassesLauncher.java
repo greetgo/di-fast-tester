@@ -1,4 +1,4 @@
-package kz.greetgo.di_fast.generator;
+package kz.greetgo.di_fast.spring.generator;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -17,7 +17,7 @@ public class GenerateClassesLauncher {
   private void exec() {
     Path destDir = Paths.get("src");
 
-    String destPackage = "kz.greetgo.di_fast.generated";
+    String destPackage = "kz.greetgo.di_fast.spring.generated";
 
     BeanClass classes[] = new BeanClass[GENERATE_CLASS_COUNT];
 
