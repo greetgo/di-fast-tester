@@ -15,8 +15,7 @@ public abstract class ParentBeanClass {
   public void printTo(Path destSrc) {
     JavaFilePrinter p = new JavaFilePrinter();
     p.packageName = packageName;
-    p.classHeader = "public class " +
-        name;
+    p.classHeader = "public class " + name;
     p.className = name;
 
     p.beforeHeader.add("@" + p.i(Component.class));

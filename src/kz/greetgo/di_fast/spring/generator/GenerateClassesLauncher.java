@@ -8,7 +8,7 @@ import static kz.greetgo.di_fast.util.Utils.shuffle;
 
 public class GenerateClassesLauncher {
 
-  private static final int GENERATE_CLASS_COUNT = 300;
+  private static final int GENERATE_CLASS_COUNT = 30;
 
   public static void main(String[] args) {
     new GenerateClassesLauncher().exec();
